@@ -1,0 +1,51 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    print "Fastlane works successfully on iOS"
+  end
+
+  lane :create_app do
+    desc "create app in app developer portal and app store connect"
+    produce(
+      username: 'ahmed.abuelregal@expertapps.com.sa',
+      app_identifier: 'com.CICDPROJECT.CICDPROJECT',
+      app_name: 'CICDPROJECT',
+      language: 'English',
+      app_version: '1.0',
+      sku: 'CICD_PROJECT',
+      team_name: 'INNOVATION DEVELOPMENT FOR INFORMATION TECHNOLOGY', # only necessary when in multiple teams
+    )
+    end
+
+    desc "Build iOS App"
+    lane :buildApp_localy do
+    match
+    gym(
+      workspace: "CICDPROJECT.xcworkspace", 
+      configuration: "Release",
+      scheme: "CICDPROJECT",
+      #silent: true,
+      clean: true,
+      #output_directory: "path/to/dir", # Destination directory. Defaults to current directory.
+      output_name: "CICDPROJECT.ipa",       # specify the name of the .ipa file to generate (including file extension)
+   )
+  end
+
+end
