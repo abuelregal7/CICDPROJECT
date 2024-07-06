@@ -39,6 +39,14 @@ Description of what the lane does
 
 Build iOS App
 
+### ios upload_app
+
+```sh
+[bundle exec] fastlane ios upload_app
+```
+
+To deliver our app
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
