@@ -41,6 +41,7 @@ platform :ios do
 
   desc "Build iOS App"
   lane :buildApp_localy do
+  # Run match before gym for code signing on a new machine
   # run match before gym for => if this app run in new machien 
   match
   
@@ -50,10 +51,11 @@ platform :ios do
 
   # Increment the build number
   increment_build_number(
-  build_number: "3",      # Specify a custom build number
+  build_number: "5",      # Specify a custom build number
   xcodeproj: "CICDPROJECT.xcodeproj"  # Path to your Xcode project
   )
 
+  # Build the app
   gym(
     workspace: "CICDPROJECT.xcworkspace", 
     configuration: "Release",
@@ -87,21 +89,21 @@ platform :ios do
     )
   end
 
-  # desc "Upload build to TestFlight"
-  # lane :upload_to_testflight do
-  #   ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa" # Path to the generated IPA file
+  desc "Upload build to TestFlight"
+  lane :upload_to_testflight do
+    ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa" # Path to the generated IPA file
 
-  #   # Check if the IPA file exists
-  #   if File.exist?(ipa_path)
-  #     UI.message("IPA file found at path: #{ipa_path}")
-  #   else
-  #     UI.user_error!("IPA file not found at path: #{ipa_path}")
-  #   end
+    # Check if the IPA file exists
+    if File.exist?(ipa_path)
+      UI.message("IPA file found at path: #{ipa_path}")
+    else
+      UI.user_error!("IPA file not found at path: #{ipa_path}")
+    end
 
-  #   upload_to_testflight(
-  #     ipa: ipa_path # Path to the generated IPA file
-  #     # Credentials will be picked from environment variables or Fastlane credentials manager
-  #   )
-  # end
+    upload_to_testflight(
+      ipa: ipa_path # Path to the generated IPA file
+      # Credentials will be picked from environment variables or Fastlane credentials manager
+    )
+  end
 
 end

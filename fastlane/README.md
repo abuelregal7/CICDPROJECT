@@ -47,6 +47,14 @@ Build iOS App
 
 To deliver our app
 
+### ios upload_to_testflight
+
+```sh
+[bundle exec] fastlane ios upload_to_testflight
+```
+
+Upload build to TestFlight
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
