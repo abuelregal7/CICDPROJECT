@@ -39,20 +39,6 @@ platform :ios do
     )
     end
 
-  #   desc "Build iOS App"
-  #   lane :buildApp_localy do
-  #   match
-  #   gym(
-  #     workspace: "CICDPROJECT.xcworkspace", 
-  #     configuration: "Release",
-  #     scheme: "CICDPROJECT",
-  #     #silent: true,
-  #     clean: true,
-  #     #output_directory: "path/to/dir", # Destination directory. Defaults to current directory.
-  #     output_name: "CICDPROJECT.ipa",       # specify the name of the .ipa file to generate (including file extension)
-  #  )
-  # end
-
   desc "Build iOS App"
   lane :buildApp_localy do
   match

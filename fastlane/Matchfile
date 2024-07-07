@@ -7,3 +7,4 @@ type("appstore") # The default type, can be: appstore, adhoc, enterprise or deve
 app_identifier("com.CICDPROJECT.CICDPROJECT")
 username("ahmed.abuelregal@expertapps.com.sa") # Your Apple Developer Portal username
 
+team_name("INNOVATION DEVELOPMENT FOR INFORMATION TECHNOLOGY")
