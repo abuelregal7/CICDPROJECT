@@ -2,10 +2,15 @@
 version: 2.1
 jobs:
   try-job:
-    macos:
-      xcode: "15.2.0"
+    docker:
+      - image: circleci/ruby:2.6.10-node-browsers
     steps:
       - checkout
+      - run:
+          name: Install Bundler and dependencies
+          command: |
+            gem install bundler
+            bundle install
       - run:
           name: Run Fastlane Tests
           command: bundle exec fastlane upload_app
