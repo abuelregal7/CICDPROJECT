@@ -6,9 +6,7 @@ jobs:
     macos:
       xcode: 15.2.0
     steps:
-    - checkout
-      #- run: echo "i am a job named try job within a workflow named try-workflow"
-
+      - checkout
       - run:
           name: Run Fastlane Tests
           command: bundle exec fastlane upload_app
