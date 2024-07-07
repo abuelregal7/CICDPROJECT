@@ -51,10 +51,10 @@ platform :ios do
 
   # Increment the build number
   increment_build_number(
-  build_number: "5",      # Specify a custom build number
+  build_number: "6",      # Specify a custom build number
   xcodeproj: "CICDPROJECT.xcodeproj"  # Path to your Xcode project
   )
-  
+
 
   # Build the app
   gym(
