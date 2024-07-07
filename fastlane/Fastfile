@@ -39,36 +39,37 @@ platform :ios do
     )
     end
 
-    desc "Build iOS App"
-    lane :buildApp_localy do
-    match
-    gym(
-      workspace: "CICDPROJECT.xcworkspace", 
-      configuration: "Release",
-      scheme: "CICDPROJECT",
-      #silent: true,
-      clean: true,
-      #output_directory: "path/to/dir", # Destination directory. Defaults to current directory.
-      output_name: "CICDPROJECT.ipa",       # specify the name of the .ipa file to generate (including file extension)
-   )
-  end
-
-  # desc "Upload build to TestFlight"
-  # lane :upload_to_testflight do
-  #   ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa" # Path to the generated IPA file
-
-  #   # Check if the IPA file exists
-  #   if File.exist?(ipa_path)
-  #     UI.message("IPA file found at path: #{ipa_path}")
-  #   else
-  #     UI.user_error!("IPA file not found at path: #{ipa_path}")
-  #   end
-
-  #   upload_to_testflight(
-  #     ipa: ipa_path # Path to the generated IPA file
-  #     # Credentials will be picked from environment variables or Fastlane credentials manager
-  #   )
+  #   desc "Build iOS App"
+  #   lane :buildApp_localy do
+  #   match
+  #   gym(
+  #     workspace: "CICDPROJECT.xcworkspace", 
+  #     configuration: "Release",
+  #     scheme: "CICDPROJECT",
+  #     #silent: true,
+  #     clean: true,
+  #     #output_directory: "path/to/dir", # Destination directory. Defaults to current directory.
+  #     output_name: "CICDPROJECT.ipa",       # specify the name of the .ipa file to generate (including file extension)
+  #  )
   # end
+
+  desc "Build iOS App"
+  lane :buildApp_localy do
+  match
+  
+  # Ensure Xcode 15 or later is used
+  xcode_version = `xcodebuild -version`.match(/Xcode\s(\d+\.\d+)/)[1]
+  raise "Xcode 15 or later is required" if Gem::Version.new(xcode_version) < Gem::Version.new('15.0')
+
+  gym(
+    workspace: "CICDPROJECT.xcworkspace", 
+    configuration: "Release",
+    scheme: "CICDPROJECT",
+    clean: true,
+    output_name: "CICDPROJECT.ipa",       # Specify the name of the .ipa file to generate (including file extension)
+    export_method: "app-store"            # or "ad-hoc", "enterprise", "development" based on your distribution method
+  )
+  end
 
   desc "To deliver our app"
   lane :upload_app do
@@ -91,5 +92,22 @@ platform :ios do
       force: true
     )
   end
+
+  # desc "Upload build to TestFlight"
+  # lane :upload_to_testflight do
+  #   ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa" # Path to the generated IPA file
+
+  #   # Check if the IPA file exists
+  #   if File.exist?(ipa_path)
+  #     UI.message("IPA file found at path: #{ipa_path}")
+  #   else
+  #     UI.user_error!("IPA file not found at path: #{ipa_path}")
+  #   end
+
+  #   upload_to_testflight(
+  #     ipa: ipa_path # Path to the generated IPA file
+  #     # Credentials will be picked from environment variables or Fastlane credentials manager
+  #   )
+  # end
 
 end
