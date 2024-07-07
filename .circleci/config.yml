@@ -2,6 +2,7 @@
 version: 2.1
 jobs:
   try-job:
+    executor: macos
     macos:
       xcode: 15.2.0
     steps:
@@ -16,3 +17,22 @@ workflows:
   try-workflow:
     jobs:
       - try-job
+
+## .circleci/config.yml
+# version: 2.1
+# jobs:
+#   try-job:
+#     macos:
+#       xcode: 15.2.0
+#     steps:
+#     - checkout
+#       - run: echo "i am a job named try job within a workflow named try-workflow"
+
+#       - run:
+#           name: Run Fastlane Tests
+#           command: bundle exec fastlane upload_app
+
+# workflows:
+#   try-workflow:
+#     jobs:
+#       - try-job
