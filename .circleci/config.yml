@@ -2,9 +2,8 @@
 version: 2.1
 jobs:
   try-job:
-    executor: macos
     macos:
-      xcode: 15.2.0
+      xcode: "15.2.0"
     steps:
       - checkout
       - run:
