@@ -12,8 +12,8 @@ jobs:
             gem install bundler -v 1.17.2
             bundle _1.17.2_ install --jobs 4 --retry 3
       - run:
-          name: Run Fastlane Tests
-          command: bundle exec fastlane upload_app
+          name: Run Fastlane Archive the app
+          command: bundle exec fastlane buildApp_localy
 
 workflows:
   try-workflow:
