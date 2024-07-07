@@ -7,10 +7,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Bundler and dependencies
+          name: Install Bundler 2.4.22
           command: |
-            gem install bundler
-            bundle install
+            gem install bundler -v 2.4.22
+            bundle _2.4.22_ install --jobs 4 --retry 3
       - run:
           name: Run Fastlane Tests
           command: bundle exec fastlane upload_app
