@@ -54,6 +54,7 @@ platform :ios do
   build_number: "5",      # Specify a custom build number
   xcodeproj: "CICDPROJECT.xcodeproj"  # Path to your Xcode project
   )
+  
 
   # Build the app
   gym(
