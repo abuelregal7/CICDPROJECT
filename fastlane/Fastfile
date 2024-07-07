@@ -41,16 +41,24 @@ platform :ios do
 
   desc "Build iOS App"
   lane :buildApp_localy do
+  # run match before gym for => if this app run in new machien 
   match
   
   # Ensure Xcode 15 or later is used
   xcode_version = `xcodebuild -version`.match(/Xcode\s(\d+\.\d+)/)[1]
   raise "Xcode 15 or later is required" if Gem::Version.new(xcode_version) < Gem::Version.new('15.0')
 
+  # Increment the build number
+  increment_build_number(
+  build_number: "3",      # Specify a custom build number
+  xcodeproj: "CICDPROJECT.xcodeproj"  # Path to your Xcode project
+  )
+
   gym(
     workspace: "CICDPROJECT.xcworkspace", 
     configuration: "Release",
     scheme: "CICDPROJECT",
+    #silent: true,
     clean: true,
     output_name: "CICDPROJECT.ipa",       # Specify the name of the .ipa file to generate (including file extension)
     export_method: "app-store"            # or "ad-hoc", "enterprise", "development" based on your distribution method
