@@ -10,6 +10,7 @@ jobs:
           name: Install Bundler 1.17.2
           command: |
             gem install bundler -v 1.17.2
+            bundle install
       - run:
           name: Run Fastlane Archive the app
           command: bundle exec fastlane buildApp_localy
