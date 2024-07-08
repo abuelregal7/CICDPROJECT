@@ -46,7 +46,8 @@ platform :ios do
   match(
     type: "appstore",
     readonly: true,
-    git_url: "abuyasen@yahoo.com:https://github.com/abuelregal7/CICDPROJECT/tree/certs"
+    git_url: "https://github.com/abuelregal7/CICDPROJECT",
+    git_branch: "certs"
   )
   
   # Ensure Xcode 15 or later is used
