@@ -34,7 +34,11 @@ jobs:
           name: Install dependencies
           command: |
             bundle install
-            bundle exec pod install
+            gem install cocoapods
+
+      - run:
+          name: Install CocoaPods dependencies
+          command: bundle exec pod install
 
       - run:
           name: Run Fastlane to Build the App
