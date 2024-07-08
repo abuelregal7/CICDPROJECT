@@ -4,7 +4,7 @@ gem "fastlane"
 #gem install bundler -v 1.17.2
 
 # Gems commonly used in iOS projects
-#gem "cocoapods"
+gem "cocoapods"
 #gem "xcodeproj"
 
 # Fastlane plugins (optional)
