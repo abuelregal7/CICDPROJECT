@@ -6,15 +6,16 @@ jobs:
       xcode: 15.2.0
     steps:
       - checkout
-      - run:
-          name: Install rbenv and required Ruby version
-          command: |
-            brew install rbenv
-            rbenv init
-            rbenv install 2.6.10
-            rbenv global 2.6.10
-            echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-            source ~/.bash_profile
+
+      # - run:
+      #     name: Install rbenv and required Ruby version
+      #     command: |
+      #       brew install rbenv
+      #       rbenv init
+      #       rbenv install 2.6.10
+      #       rbenv global 2.6.10
+      #       echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+      #       source ~/.bash_profile
       - run:
           name: Set up Git credentials
           command: |
