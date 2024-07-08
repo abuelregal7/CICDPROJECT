@@ -16,24 +16,17 @@ jobs:
       #       rbenv global 2.6.10
       #       echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
       #       source ~/.bash_profile
+      
       - run:
           name: Set up Git credentials
           command: |
             git config --global url."https://${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}@github.com/".insteadOf "https://github.com/"
+
       - run:
           name: Install Bundler 1.17.2
           command: |
             gem install bundler -v 1.17.2
             bundle install
-      # - run:
-      #     name: Install rbenv and required Ruby version
-      #     command: |
-      #       brew install rbenv
-      #       rbenv init
-      #       rbenv install $RUBY_VERSION
-      #       rbenv global $RUBY_VERSION
-      #       echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-      #       source ~/.bash_profile
 
       - run:
           name: Install Bundler and CocoaPods
