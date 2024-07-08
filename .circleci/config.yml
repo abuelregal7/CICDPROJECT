@@ -22,7 +22,6 @@ jobs:
             echo 'rbenv global 2.7.4' >> ~/.bash_profile
             source ~/.bash_profile
 
-
       - run:
           name: Verify Ruby version
           command: ruby -v
@@ -43,11 +42,11 @@ jobs:
 
       - run:
           name: Install coreutils
-          command: sudo apt-get update && sudo apt-get install -y coreutils
+          command: brew install coreutils
           
       - run:
           name: Run Fastlane to Build the App
-          command: timeout -s KILL 20m bundle exec fastlane buildApp_localy
+          command: gtimeout -s KILL 20m bundle exec fastlane buildApp_localy
 
 workflows:
   version: 2
