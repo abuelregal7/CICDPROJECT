@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "fastlane"
-#gem install bundler -v 1.17.2
+#gem install bundler -v 2.5.14
 
 # Gems commonly used in iOS projects
 gem "cocoapods"
