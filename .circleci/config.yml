@@ -10,8 +10,14 @@ jobs:
       - checkout
 
       - run:
-          name: Initialize rbenv
+          name: Install rbenv and Ruby 2.6.10
           command: |
+            brew update
+            brew install rbenv
+            eval "$(rbenv init -)"
+            rbenv install -s 2.6.10
+            rbenv global 2.6.10
+            rbenv rehash
             echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
             echo 'rbenv global 2.6.10' >> ~/.bash_profile
             source ~/.bash_profile
