@@ -43,7 +43,7 @@ jobs:
 
       - run:
           name: Run Fastlane to Build the App
-          command: bundle exec fastlane buildApp_localy
+          command: timeout -s KILL 20m bundle exec fastlane buildApp_localy
 
 workflows:
   version: 2
