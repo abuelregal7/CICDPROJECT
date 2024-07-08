@@ -43,7 +43,11 @@ platform :ios do
   lane :buildApp_localy do
   # Run match before gym for code signing on a new machine
   # run match before gym for => if this app run in new machien 
-  #match
+  match(
+    type: "appstore",
+    readonly: true,
+    git_url: "abuyasen@yahoo.com:https://github.com/abuelregal7/CICDPROJECT/tree/certs"
+  )
   
   # Ensure Xcode 15 or later is used
   xcode_version = `xcodebuild -version`.match(/Xcode\s(\d+\.\d+)/)[1]
