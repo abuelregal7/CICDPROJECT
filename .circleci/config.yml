@@ -2,16 +2,14 @@
 version: 2.1
 jobs:
   try-job:
-    docker:
-      - image: ruby:2.6.10
+    macos:
+      xcode: 15.2.0
     steps:
       - checkout
-
       - run:
           name: Set up Git credentials
           command: |
             git config --global url."https://${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}@github.com/".insteadOf "https://github.com/"
-
       - run:
           name: Install Bundler 1.17.2
           command: |
