@@ -25,15 +25,15 @@ jobs:
           command: |
             gem install bundler -v 1.17.2
             bundle install
-      - run:
-          name: Install rbenv and required Ruby version
-          command: |
-            brew install rbenv
-            rbenv init
-            rbenv install $RUBY_VERSION
-            rbenv global $RUBY_VERSION
-            echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-            source ~/.bash_profile
+      # - run:
+      #     name: Install rbenv and required Ruby version
+      #     command: |
+      #       brew install rbenv
+      #       rbenv init
+      #       rbenv install $RUBY_VERSION
+      #       rbenv global $RUBY_VERSION
+      #       echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+      #       source ~/.bash_profile
 
       - run:
           name: Install Bundler and CocoaPods
