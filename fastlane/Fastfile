@@ -45,6 +45,7 @@ platform :ios do
   # run match before gym for => if this app run in new machien 
   match(
     type: "appstore",
+    clone_branch_directly: true,
     readonly: true,
     git_url: "https://github.com/abuelregal7/CICDPROJECT",
     git_branch: "certs"
