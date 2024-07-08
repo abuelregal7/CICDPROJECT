@@ -1,38 +1,28 @@
 # .circleci/config.yml
 version: 2.1
 jobs:
-  try-job:
+  build:
     macos:
-      xcode: 15.2.0
+      xcode: "15.2.0"
+    environment:
+      RUBY_VERSION: "2.6.10"
     steps:
       - checkout
 
-      # - run:
-      #     name: Install rbenv and required Ruby version
-      #     command: |
-      #       brew install rbenv
-      #       rbenv init
-      #       rbenv install 2.6.10
-      #       rbenv global 2.6.10
-      #       echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-      #       source ~/.bash_profile
-      
       - run:
-          name: Set up Git credentials
+          name: Initialize rbenv
           command: |
-            git config --global url."https://${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}@github.com/".insteadOf "https://github.com/"
+            echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+            echo 'rbenv global 2.6.10' >> ~/.bash_profile
+            source ~/.bash_profile
 
       - run:
-          name: Install Bundler 1.17.2
-          command: |
-            gem install bundler -v 1.17.2
-            bundle install
+          name: Verify Ruby version
+          command: ruby -v
 
       - run:
-          name: Install Bundler and CocoaPods
-          command: |
-            gem install bundler -v 1.17.2
-            gem install cocoapods
+          name: Install Bundler
+          command: gem install bundler -v 1.17.2
 
       - run:
           name: Install dependencies
@@ -41,13 +31,14 @@ jobs:
             bundle exec pod install
 
       - run:
-          name: Run Fastlane Archive the app
+          name: Run Fastlane to Build the App
           command: bundle exec fastlane buildApp_localy
 
 workflows:
-  try-workflow:
+  version: 2
+  build_and_test:
     jobs:
-      - try-job
+      - build
 
 
 #bundle _1.17.2_ install --jobs 4 --retry 3
