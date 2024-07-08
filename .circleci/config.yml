@@ -25,13 +25,26 @@ jobs:
             gem install bundler -v 1.17.2
             bundle install
       - run:
-          name: Install CocoaPods
+          name: Install rbenv and required Ruby version
           command: |
-            bundle exec pod install
-            
+            brew install rbenv
+            rbenv init
+            rbenv install $RUBY_VERSION
+            rbenv global $RUBY_VERSION
+            echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+            source ~/.bash_profile
+
       - run:
-          name: Run Fastlane Match to Download Provisioning Profiles
-          command: bundle exec fastlane match appstore
+          name: Install Bundler and CocoaPods
+          command: |
+            gem install bundler -v 1.17.2
+            gem install cocoapods
+
+      - run:
+          name: Install dependencies
+          command: |
+            bundle install
+            bundle exec pod install
 
       - run:
           name: Run Fastlane Archive the app
