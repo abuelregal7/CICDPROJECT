@@ -5,21 +5,21 @@ jobs:
     macos:
       xcode: "15.2.0"
     environment:
-      RUBY_VERSION: "2.6.10"
+      RUBY_VERSION: "2.7.4"  # Update to the Ruby version you need
     steps:
       - checkout
 
       - run:
-          name: Install rbenv and Ruby 2.6.10
+          name: Install rbenv and Ruby 2.7.4
           command: |
             brew update
             brew install rbenv
             eval "$(rbenv init -)"
-            rbenv install -s 2.6.10
-            rbenv global 2.6.10
+            rbenv install -s 2.7.4
+            rbenv global 2.7.4
             rbenv rehash
             echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-            echo 'rbenv global 2.6.10' >> ~/.bash_profile
+            echo 'rbenv global 2.7.4' >> ~/.bash_profile
             source ~/.bash_profile
 
       - run:
