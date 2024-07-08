@@ -22,6 +22,7 @@ jobs:
             echo 'rbenv global 2.7.4' >> ~/.bash_profile
             source ~/.bash_profile
 
+
       - run:
           name: Verify Ruby version
           command: ruby -v
