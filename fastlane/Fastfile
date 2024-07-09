@@ -88,6 +88,15 @@ platform :ios do
 
   desc "To deliver our app"
   lane :upload_app do
+
+    retry_count = 3  # Number of times to retry
+
+    begin
+      retry_count -= 1
+      # Your existing lane code here
+      # Ensure directory_path and ipa_path are correctly defined
+  
+
     # Directory Path
     directory_path = '/Users/distiller/project'
 
