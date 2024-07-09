@@ -7,7 +7,7 @@ jobs:
     environment:
       RUBY_VERSION: "2.7.4"
       MATCH_PASSWORD: CICDPROJECT
-      MATCH_GIT_BASIC_AUTHORIZATION: YWJ1ZWxyZWdhbDc6Z2hwX3BDcnVXWm11a1V2VHVLakhPTDFPNDg0bjJVbFpmZjBub3d2Z24=
+      MATCH_GIT_BASIC_AUTHORIZATION: YWJ1eWFzZW5AeWFob28uY29tOmdocF9tZjFkdXVlUDk1RHFpWXVjaWhwR1FTc25yRFU5bFAxcTJHVW0=
     steps:
       - checkout
 
@@ -50,7 +50,7 @@ jobs:
           name: Debug Environment Variables
           command: |
             echo "MATCH_PASSWORD: CICDPROJECT"
-            echo "MATCH_GIT_BASIC_AUTHORIZATION: YWJ1ZWxyZWdhbDc6Z2hwX3BDcnVXWm11a1V2VHVLakhPTDFPNDg0bjJVbFpmZjBub3d2Z24="
+            echo "MATCH_GIT_BASIC_AUTHORIZATION: YWJ1eWFzZW5AeWFob28uY29tOmdocF9tZjFkdXVlUDk1RHFpWXVjaWhwR1FTc25yRFU5bFAxcTJHVW0="
 
       - run:
           name: Run Fastlane to Build the App
