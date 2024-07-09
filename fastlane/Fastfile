@@ -104,13 +104,14 @@ platform :ios do
     end
 
     deliver(
+      username: "ahmed.abuelregal@expertapps.com.sa",
+      app_identifier: "com.CICDPROJECT.CICDPROJECT",
       ipa: ipa_path,
       skip_metadata: true,
       skip_screenshots: true,
       skip_binary_upload: true,
       # skip_app_version_update: true,
-      force: true,
-      timeout: 1200 # Increase timeout to 20 minutes (1200 seconds)
+      force: true
     )
   end
 
