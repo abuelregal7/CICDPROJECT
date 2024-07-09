@@ -80,7 +80,7 @@ platform :ios do
     scheme: "CICDPROJECT",
     #silent: true,
     clean: true,
-    output_directory: "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/",
+    #output_directory: "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/",
     output_name: "CICDPROJECT.ipa",       # Specify the name of the .ipa file to generate (including file extension)
     export_method: "app-store"            # or "ad-hoc", "enterprise", "development" based on your distribution method
   )
@@ -89,8 +89,7 @@ platform :ios do
   desc "To deliver our app"
   lane :upload_app do
     # Directory Path
-    # '/Users/distiller/project/'
-    directory_path = '/Users/ahmedaboal-regal/Desktop/CICDPROJECT'
+    directory_path = '/Users/distiller/project'
 
     # Print directory contents for debugging
     UI.message("Contents of directory: #{Dir.entries(directory_path)}")
