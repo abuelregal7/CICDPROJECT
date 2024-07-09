@@ -67,12 +67,17 @@ jobs:
           command: |
             bundle exec fastlane upload_app
 
+      - run:
+          name: Print Environment Variables
+          command: printenv
+
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
+
 
 
 # --verbose
