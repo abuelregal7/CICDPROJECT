@@ -59,6 +59,11 @@ jobs:
             gtimeout -s KILL 20m bundle exec fastlane buildApp_localy
             kill %1
 
+      - run:
+          name: Upload build to TestFlight
+          command: |
+            bundle exec fastlane upload_to_testflight
+
 
 workflows:
   version: 2
