@@ -5,7 +5,9 @@ jobs:
     macos:
       xcode: "15.2.0"
     environment:
-      RUBY_VERSION: "2.7.4"  # Update to the Ruby version you need
+      RUBY_VERSION: "2.7.4"
+      MATCH_PASSWORD: CICDPROJECT
+      MATCH_GIT_BASIC_AUTHORIZATION: YWJ1ZWxyZWdhbDc6Z2hwX3BDcnVXWm11a1V2VHVLakhPTDFPNDg0bjJVbFpmZjBub3d2Z24=
     steps:
       - checkout
 
@@ -43,7 +45,7 @@ jobs:
       - run:
           name: Install coreutils
           command: brew install coreutils
-          
+
       - run:
           name: Run Fastlane to Build the App
           command: |
@@ -56,6 +58,7 @@ workflows:
   build_and_test:
     jobs:
       - build
+
 
 
 #bundle _1.17.2_ install --jobs 4 --retry 3
