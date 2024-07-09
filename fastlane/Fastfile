@@ -113,6 +113,15 @@ platform :ios do
       # skip_app_version_update: true,
       force: true
     )
+    rescue => e
+      if retry_count > 0
+        UI.error("Error occurred: #{e.message}. Retrying...")
+        retry
+      else
+        UI.error("Failed after retrying #{retry_count} times: #{e.message}")
+        raise e
+      end
+    end
   end
 
   # desc "Upload build to TestFlight"
