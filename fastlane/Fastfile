@@ -88,7 +88,7 @@ platform :ios do
   desc "To deliver our app"
   lane :upload_app do
 
-    directory_path = '/Users/ahmedaboal-regal/Desktop/***********/'
+    directory_path = '/Users/ahmedaboal-regal/Desktop/CICDPROJECT/'
 
     # Print directory contents for debugging
     UI.message("Contents of directory: #{Dir.entries(directory_path)}")
