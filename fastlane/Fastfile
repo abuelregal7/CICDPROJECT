@@ -88,13 +88,17 @@ platform :ios do
   desc "To deliver our app"
   lane :upload_app do
 
-    ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa" # Path to the generated IPA file
+    directory_path = '/Users/ahmedaboal-regal/Desktop/***********/'
+
+    # Print directory contents for debugging
+    UI.message("Contents of directory: #{Dir.entries(directory_path)}")
+
+    ipa_path = "#{directory_path}/CICDPROJECT.ipa" # Adjust this to match your actual IPA file name
 
     # Check if the IPA file exists
     if File.exist?(ipa_path)
       UI.message("IPA file found at path: #{ipa_path}")
     else
-      UI.message("Contents of directory: #{Dir.entries('/Users/ahmedaboal-regal/Desktop/CICDPROJECT/')}")
       UI.user_error!("IPA file not found at path: #{ipa_path}")
     end
 
