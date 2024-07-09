@@ -55,9 +55,8 @@ jobs:
       - run:
           name: Run Fastlane to Build the App
           command: |
-            while sleep 60; do echo "=====[ $SECONDS seconds still running ]====="; done &
-            gtimeout -s KILL 20m bundle exec fastlane buildApp_localy --verbose
-            kill %1
+            bundle exec fastlane buildApp_localy
+            
 
 workflows:
   version: 2
