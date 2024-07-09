@@ -8,6 +8,9 @@ jobs:
       RUBY_VERSION: "2.7.4"
       MATCH_PASSWORD: CICDPROJECT
       MATCH_GIT_BASIC_AUTHORIZATION: YWJ1eWFzZW5AeWFob28uY29tOmdocF9tZjFkdXVlUDk1RHFpWXVjaWhwR1FTc25yRFU5bFAxcTJHVW0=
+      FASTLANE_USER: ahmed.abuelregal@expertapps.com.sa
+      FASTLANE_PASSWORD: A911998a@
+      
     steps:
       - checkout
 

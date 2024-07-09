@@ -133,7 +133,9 @@ platform :ios do
     end
   end
 
-  # desc "Upload build to TestFlight"
+end
+
+# desc "Upload build to TestFlight"
   # lane :upload_to_testflight do
   #   ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa" # Path to the generated IPA file
 
@@ -149,5 +151,3 @@ platform :ios do
   #     # Credentials will be picked from environment variables or Fastlane credentials manager
   #   )
   # end
-
-end
