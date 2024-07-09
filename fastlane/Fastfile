@@ -109,7 +109,8 @@ platform :ios do
       skip_screenshots: true,
       skip_binary_upload: true,
       # skip_app_version_update: true,
-      force: true
+      force: true,
+      timeout: 1200 # Increase timeout to 20 minutes (1200 seconds)
     )
   end
 
