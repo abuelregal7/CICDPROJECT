@@ -88,7 +88,7 @@ platform :ios do
   desc "To deliver our app"
   lane :upload_app do
 
-    ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa" # Path to the generated IPA file
+    ipa_path = "CICDPROJECT.ipa" # Path to the generated IPA file
 
     # Check if the IPA file exists
     if File.exist?(ipa_path)
