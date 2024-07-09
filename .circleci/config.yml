@@ -65,7 +65,7 @@ jobs:
       - run:
           name: Upload build to TestFlight
           command: |
-            bundle exec fastlane upload_app --verbose
+            bundle exec fastlane upload_app
 
 
 workflows:
@@ -76,6 +76,7 @@ workflows:
 
 
 
+# --verbose
 
 #bundle _1.17.2_ install --jobs 4 --retry 3
 
