@@ -62,7 +62,7 @@ jobs:
       - run:
           name: Upload build to TestFlight
           command: |
-            bundle exec fastlane upload_to_testflight
+            bundle exec fastlane upload_app
 
 
 workflows:
