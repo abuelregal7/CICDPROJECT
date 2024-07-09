@@ -51,6 +51,7 @@ platform :ios do
   match(
     type: "appstore",
     clone_branch_directly: true,
+    git_basic_authorization: ENV["YWJ1ZWxyZWdhbDc6Z2hwX3BDcnVXWm11a1V2VHVLakhPTDFPNDg0bjJVbFpmZjBub3d2Z24="]
     readonly: true,
     git_url: "https://github.com/abuelregal7/CICDPROJECT",
     git_branch: "certs"

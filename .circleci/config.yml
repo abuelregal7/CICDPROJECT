@@ -47,10 +47,16 @@ jobs:
           command: brew install coreutils
 
       - run:
+          name: Debug Environment Variables
+          command: |
+            echo "MATCH_PASSWORD: CICDPROJECT"
+            echo "MATCH_GIT_BASIC_AUTHORIZATION: YWJ1ZWxyZWdhbDc6Z2hwX3BDcnVXWm11a1V2VHVLakhPTDFPNDg0bjJVbFpmZjBub3d2Z24="
+
+      - run:
           name: Run Fastlane to Build the App
           command: |
             while sleep 60; do echo "=====[ $SECONDS seconds still running ]====="; done &
-            gtimeout -s KILL 20m bundle exec fastlane buildApp_localy
+            gtimeout -s KILL 20m bundle exec fastlane buildApp_localy --verbose
             kill %1
 
 workflows:
