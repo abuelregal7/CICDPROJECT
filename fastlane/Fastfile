@@ -87,7 +87,7 @@ platform :ios do
 
   desc "To deliver our app"
   lane :upload_app do
-
+    # Directory Path
     directory_path = '/Users/ahmedaboal-regal/Desktop/CICDPROJECT/'
 
     # Print directory contents for debugging
