@@ -86,6 +86,16 @@ platform :ios do
   )
   end
 
+  desc "Generate a session token for App Store Connect"
+  lane :generate_token do
+    # This command will prompt for 2FA and generate the session token
+    api_key = spaceship_login(
+      username: "ahmed.abuelregal@expertapps.com.sa",
+      password: "gdfm-pgpi-lphq-wlgz"
+    )
+    puts api_key.to_json
+  end
+
   desc "To deliver our app"
   lane :upload_app do
 
