@@ -143,6 +143,15 @@ platform :ios do
     #   team_name: "INNOVATION DEVELOPMENT FOR INFORMATION TECHNOLOGY"
     # )
 
+    # api_key = spaceship_login(
+    #   username: "ahmed.abuelregal@expertapps.com.sa",
+    #   apple_id: "ahmed.abuelregal@expertapps.com.sa",
+    #   password: "A911998a@",
+    #   team_id: "125212996",
+    #   team_name: "INNOVATION DEVELOPMENT FOR INFORMATION TECHNOLOGY"
+    # )
+    # puts api_key.to_json
+
     deliver(
       username: "ahmed.abuelregal@expertapps.com.sa",
       app_identifier: "com.CICDPROJECT.CICDPROJECT",
