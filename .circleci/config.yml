@@ -64,7 +64,7 @@ jobs:
 
       - run:
           name: Generate a session token for App Store Connect
-          command: generate_token
+          command: bundle exec fastlane generate_token
 
       - run:
           name: Upload build to TestFlight
