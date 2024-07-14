@@ -23,14 +23,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Description of what the lane does
 
-### ios clear_cache
-
-```sh
-[bundle exec] fastlane ios clear_cache
-```
-
-Clear Fastlane cache
-
 ### ios create_app
 
 ```sh
@@ -62,14 +54,6 @@ Generate a session token for App Store Connect
 ```
 
 To deliver our app
-
-### ios upload_to_testflight
-
-```sh
-[bundle exec] fastlane ios upload_to_testflight
-```
-
-Upload build to TestFlight
 
 ----
 
