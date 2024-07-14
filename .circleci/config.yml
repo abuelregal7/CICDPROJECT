@@ -62,14 +62,14 @@ jobs:
             gtimeout -s KILL 20m bundle exec fastlane buildApp_localy
             kill %1
 
-      - run:
-          name: Generate a session token for App Store Connect
-          command: bundle exec fastlane generate_token
+      # - run:
+      #     name: Generate a session token for App Store Connect
+      #     command: bundle exec fastlane generate_token
 
-      - run:
-          name: Upload build to TestFlight
-          command: |
-            bundle exec fastlane upload_app
+      # - run:
+      #     name: Upload build to TestFlight
+      #     command: |
+      #       bundle exec fastlane upload_app
 
       - run:
           name: Print Environment Variables

@@ -26,6 +26,11 @@ platform :ios do
     print "Fastlane works successfully on iOS"
   end
 
+  # desc "Clear Fastlane cache"
+  # lane :clear_cache do
+  #   sh "fastlane clear_cache"
+  # end
+
   #desc: "Releases pur app to app store"
   #lane: release_app do
     #print "put all lanes here"
@@ -57,7 +62,8 @@ platform :ios do
     type: "appstore",
     clone_branch_directly: true,
     git_basic_authorization: ENV["YWJ1eWFzZW5AeWFob28uY29tOmdocF9tZjFkdXVlUDk1RHFpWXVjaWhwR1FTc25yRFU5bFAxcTJHVW0="],
-    readonly: is_ci,
+    readonly: is_ci, 
+    #readonly: true,
     git_url: "https://github.com/abuelregal7/CICDPROJECT",
     git_branch: "certs"
   )
@@ -68,7 +74,7 @@ platform :ios do
 
   # Increment the build number
   increment_build_number(
-  build_number: "6",      # Specify a custom build number
+  build_number: "8",      # Specify a custom build number
   xcodeproj: "CICDPROJECT.xcodeproj"  # Path to your Xcode project
   )
 
@@ -94,6 +100,13 @@ platform :ios do
       password: "gdfm-pgpi-lphq-wlgz"
     )
     puts api_key.to_json
+
+    api_key = app_store_connect_api_key(
+      key_id: "YOUR_KEY_ID",
+      issuer_id: "YOUR_ISSUER_ID",
+      key_content: ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
+    )
+
   end
 
   desc "To deliver our app"
@@ -108,7 +121,7 @@ platform :ios do
   
 
     # Directory Path
-    directory_path = '/Users/distiller/project'
+    directory_path = '/Users/ahmedaboal-regal/Desktop/CICDPROJECT' #/Users/ahmedaboal-regal/Desktop/CICDPROJECT #/Users/distiller/project
 
     # Print directory contents for debugging
     UI.message("Contents of directory: #{Dir.entries(directory_path)}")
@@ -129,8 +142,9 @@ platform :ios do
       skip_metadata: true,
       skip_screenshots: true,
       skip_binary_upload: true,
-      # skip_app_version_update: true,
-      force: true
+      skip_app_version_update: true,
+      force: true #,
+      #api_key: { session: ENV['FASTLANE_SESSION'] }
     )
     rescue => e
       if retry_count > 0
@@ -140,6 +154,33 @@ platform :ios do
         UI.error("Failed after retrying #{retry_count} times: #{e.message}")
         raise e
       end
+    end
+  end
+
+  desc "Upload build to TestFlight"
+  lane :upload_to_testflight do
+    ipa_path = "/Users/ahmedaboal-regal/Desktop/CICDPROJECT/CICDPROJECT.ipa"
+    UI.message("IPA file path: #{ipa_path}")
+
+    if File.exist?(ipa_path)
+      UI.message("IPA file found at path: #{ipa_path}")
+    else
+      UI.user_error!("IPA file not found at path: #{ipa_path}")
+    end
+
+    begin
+      UI.message("Starting upload to TestFlight...")
+      upload_to_testflight(
+        username: "ahmed.abuelregal@expertapps.com.sa",
+        app_identifier: "com.CICDPROJECT.CICDPROJECT",
+        ipa: ipa_path,
+        disable_semantics: true
+      )
+      UI.success("Upload to TestFlight completed successfully!")
+    rescue => e
+      UI.error("Error uploading to TestFlight: #{e.message}")
+      UI.error("Backtrace: #{e.backtrace.join("\n")}")
+      raise e
     end
   end
 

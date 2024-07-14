@@ -7,6 +7,8 @@ gem "fastlane"
 gem "cocoapods"
 #gem "xcodeproj"
 
+gem 'tty-screen'
+
 # Fastlane plugins (optional)
 #gem "fastlane-plugin-versioning"
 #gem "fastlane-plugin-xcov"

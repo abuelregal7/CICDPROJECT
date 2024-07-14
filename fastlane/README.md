@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Description of what the lane does
 
+### ios clear_cache
+
+```sh
+[bundle exec] fastlane ios clear_cache
+```
+
+Clear Fastlane cache
+
 ### ios create_app
 
 ```sh
@@ -38,6 +46,14 @@ Description of what the lane does
 ```
 
 Build iOS App
+
+### ios generate_token
+
+```sh
+[bundle exec] fastlane ios generate_token
+```
+
+Generate a session token for App Store Connect
 
 ### ios upload_app
 
