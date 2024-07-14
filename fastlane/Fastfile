@@ -62,8 +62,8 @@ platform :ios do
     type: "appstore",
     clone_branch_directly: true,
     git_basic_authorization: ENV["YWJ1eWFzZW5AeWFob28uY29tOmdocF9tZjFkdXVlUDk1RHFpWXVjaWhwR1FTc25yRFU5bFAxcTJHVW0="],
-    #readonly: is_ci, 
-    readonly: true,
+    readonly: is_ci, 
+    #readonly: true,
     git_url: "https://github.com/abuelregal7/CICDPROJECT",
     git_branch: "certs"
   )
